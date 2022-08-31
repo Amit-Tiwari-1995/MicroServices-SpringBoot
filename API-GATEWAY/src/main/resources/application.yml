@@ -1,0 +1,18 @@
+server:
+  port: 8888
+  
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true 
+    
+spring:  application:    name: API-GATEWAY 
+  cloud:    gateway:      routes:      -  id: order-service
+         uri: lb://ORDER-SERVICE
+         predicates:           - Path=/orders/** 
+      -  id: payment-service
+         uri: lb://PAYMENT-SERVICE
+         predicates:
+           - Path=/payments/**     
+                        

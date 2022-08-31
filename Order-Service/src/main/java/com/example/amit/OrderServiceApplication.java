@@ -19,6 +19,7 @@ public class OrderServiceApplication {
 
 	@Bean
 	@LoadBalanced
+	//Add name in uri (for client side load balancing)
 	public RestTemplate getRestTemplate()
 	{
 		return new RestTemplate();

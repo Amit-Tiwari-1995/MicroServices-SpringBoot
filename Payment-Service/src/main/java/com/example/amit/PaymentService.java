@@ -25,4 +25,10 @@ public class PaymentService {
 	{
 		return new Random().nextBoolean()?"Success":"False";
 	}
+
+
+	public Payment getPaymentHistoryById(int id) {
+		
+		return this.paymentRepository.findPaymentByOrderId(id);
+	}
 }

@@ -2,11 +2,14 @@ package com.example.amit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/payments")
 public class PaymentController {
 
 	@Autowired
@@ -17,6 +20,13 @@ public class PaymentController {
 	public Payment createPayment(@RequestBody Payment payment)
 	{
 		 return this.paymentService.createPayment(payment);
+	}
+	
+	
+	@GetMapping("/{id}")
+	public Payment getPaymentHistoryById(@PathVariable int id)
+	{
+		 return this.paymentService.getPaymentHistoryById(id);
 	}
 	
 }

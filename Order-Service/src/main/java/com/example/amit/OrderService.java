@@ -25,7 +25,7 @@ public class OrderService {
 		// rest call
 		
 		Payment  paymentResponse =
-				restTemplate.postForObject("http://PAYMENT-SERVICE/create/payment", payment, Payment.class);
+				restTemplate.postForObject("http://PAYMENT-SERVICE/payments/create/payment", payment, Payment.class);
 		
 		message=paymentResponse.getPaymentStatus().equals("Success")?"Payment success and Order Placed":"Failure in payment API, added to cart";
 
