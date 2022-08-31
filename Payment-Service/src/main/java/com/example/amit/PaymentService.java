@@ -1,5 +1,6 @@
 package com.example.amit;
 
+import java.util.Random;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,14 @@ public class PaymentService {
 	public Payment createPayment(Payment payment)
 
 	{
+		payment.setPaymentStatus(paymentProcessing());
         payment.setTransactionId(UUID.randomUUID().toString());
 		return this.paymentRepository.save(payment);
+	}
+	
+	
+	public String paymentProcessing()
+	{
+		return new Random().nextBoolean()?"Success":"False";
 	}
 }
