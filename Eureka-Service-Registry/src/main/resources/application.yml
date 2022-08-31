@@ -1,0 +1,10 @@
+server:
+  port: 8761
+  
+  
+
+#Below two propeties are used so eureka does not register with iteself  
+eureka:  client:    register-with-eureka: false
+    fetch-registry: false  
+    
+      
